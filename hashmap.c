@@ -21,7 +21,7 @@ struct HashMap {
     long current; //indice del ultimo dato accedido
 };
 
-Pair * createPair( char * key,  void * value) {
+Pair * createPair( char * key,  void * value){
     Pair * new = (Pair *)malloc(sizeof(Pair));
     new->key = key;
     new->value = value;
@@ -42,7 +42,6 @@ int is_equal(void* key1, void* key2){
     if(strcmp((char*)key1,(char*)key2) == 0) return 1;
     return 0;
 }
-
 
 void insertMap(HashMap * map, char * key, void * value) {
   long cap = hash(key, map -> capacity);
@@ -81,13 +80,19 @@ HashMap * createMap(long capacity) {
 
 void eraseMap(HashMap * map,  char * key) {    
 
-
 }
 
 void * searchMap(HashMap * map,  char * key) {   
-
-
-    return NULL;
+  long pos = hash(key, map -> capacity);
+  map->current = pos;
+  for(;map->buckets[pos]->key == key;pos++){
+    if(pos >= map -> capacity){
+      pos = 0;
+    }
+  }
+  map->current = pos;
+  map ->size++;
+  return NULL;
 }
 
 void * firstMap(HashMap * map) {
