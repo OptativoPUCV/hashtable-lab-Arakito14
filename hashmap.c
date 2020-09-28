@@ -52,7 +52,7 @@ void insertMap(HashMap * map, char * key, void * value) {
       break;
     }
     cap++;
-    if(cap > map -> capacity){
+    if(cap == map -> capacity){
       cap = 0;
     }
   }
