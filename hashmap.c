@@ -90,7 +90,7 @@ void * searchMap(HashMap * map,  char * key) {
       return NULL;
     }
     if(pos >= map -> capacity){
-      pos = 0;
+      pos = -1;
     }
   }
   map->current = pos;
