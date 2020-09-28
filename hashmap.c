@@ -85,8 +85,10 @@ void eraseMap(HashMap * map,  char * key) {
 void * searchMap(HashMap * map,  char * key) {   
   long pos = hash(key, map -> capacity);
   map->current = pos;
-  for(;map->buckets[pos]->key != key;pos++){
-    
+  for(;map->buckets[pos]->key == key;pos++){
+    if(map->buckets[pos]==NULL){
+      return NULL;
+    }
     if(pos >= map -> capacity){
       pos = 0;
     }
