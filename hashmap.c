@@ -52,7 +52,7 @@ void insertMap(HashMap * map, char * key, void * value) {
     }
     cap++;
     if(cap == map -> capacity){
-      cap = -1;
+      cap = 0;
     }
   }
 
@@ -90,7 +90,7 @@ void * searchMap(HashMap * map,  char * key) {
       return NULL;
     }
     if(pos >= map -> capacity){
-      pos = -1;
+      pos = 0;
     }
   }
   map->current = pos;
