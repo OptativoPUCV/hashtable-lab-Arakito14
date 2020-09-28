@@ -95,11 +95,7 @@ void * searchMap(HashMap * map,  char * key) {
   }
   map->current = pos;
   map ->size++;
-  if(map->buckets[map->current]->key==key){
-    return map->buckets[map->current]->key;
-  }else{
-    return map->buckets[map->current]->value;
-  }
+  return map->buckets[map->current]->value;
 }
 
 void * firstMap(HashMap * map) {
