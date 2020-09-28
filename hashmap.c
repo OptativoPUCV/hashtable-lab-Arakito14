@@ -47,10 +47,11 @@ int is_equal(void* key1, void* key2){
 void insertMap(HashMap * map, char * key, void * value) {
   long cap = hash(key, map -> capacity);
   
-  if(cap==1){
-  }else{
+  if(cap!=1){
     for(;map -> buckets[cap] != NULL;cap++){
     }
+  }else{
+      
   }
   
   map -> buckets[cap] = createPair(key,value);    
